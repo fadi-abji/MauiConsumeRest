@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PartsService.Models;
 using System.Net;
 using System.Text.Json;
 
 namespace PartsService.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class PartsController : BaseController

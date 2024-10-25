@@ -22,7 +22,6 @@
         <Button Text="Save" Grid.Row="1" Grid.Column="0" Command="{Binding SaveDataCommand}" Margin="20,0"/>
         <Button Text="Delete" Grid.Row="1" Grid.Column="1" Command="{Binding DeletePartCommand}"/>
         <Button Text="Cancel" Grid.Row="1" Grid.Column="2" Command="{Binding DoneEditingCommand}" Margin="20,0"/>
-
     </Grid>
 
 </ContentPage>

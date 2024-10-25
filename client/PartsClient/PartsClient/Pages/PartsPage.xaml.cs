@@ -1,13 +1,12 @@
-using PartsClient.Data;
 using PartsClient.ViewModels;
 
 namespace PartsClient.Pages;
 
 public partial class PartsPage : ContentPage
 {
-    public PartsPage()
+    public PartsPage(PartsViewModel partsViewModel)
     {
         InitializeComponent();
-        BindingContext = new PartsViewModel();
+        BindingContext = partsViewModel;
     }
 }

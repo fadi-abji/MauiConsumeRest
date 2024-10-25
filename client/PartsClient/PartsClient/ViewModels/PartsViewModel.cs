@@ -3,12 +3,12 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PartsClient.Data;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace PartsClient.ViewModels;
 
 public partial class PartsViewModel : ObservableObject
 {
+
     [ObservableProperty]
     ObservableCollection<Part> _parts;
 
@@ -25,7 +25,7 @@ public partial class PartsViewModel : ObservableObject
     Part _selectedPart;
 
     public PartsViewModel()
-    {            
+    {
         _parts = new ObservableCollection<Part>();
 
         WeakReferenceMessenger.Default.Register<RefreshMessage>(this, async (r, m) =>
@@ -49,7 +49,7 @@ public partial class PartsViewModel : ObservableObject
 
         await Shell.Current.GoToAsync("addpart", navigationParameter);
 
-        MainThread.BeginInvokeOnMainThread(() => SelectedPart = null);            
+        MainThread.BeginInvokeOnMainThread(() => SelectedPart = null);
     }
 
     [RelayCommand]
@@ -68,15 +68,15 @@ public partial class PartsViewModel : ObservableObject
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 Parts.Clear();
-                
+
                 foreach (Part part in partsCollection)
-                {                        
-                    Parts.Add(part);                        
+                {
+                    Parts.Add(part);
                 }
             });
         }
         finally
-        {    
+        {
             IsRefreshing = false;
             IsBusy = false;
         }
