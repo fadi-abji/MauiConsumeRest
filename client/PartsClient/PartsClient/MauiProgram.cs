@@ -19,8 +19,9 @@ public static class MauiProgram
 
         builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7210") });
 
-        builder.Services.AddSingleton<LoginViewModel>();
         builder.Services.AddScoped<IAuthService, AuthService>();
+        builder.Services.AddScoped<IPartsService, PartsService>();
+        builder.Services.AddSingleton<LoginViewModel>();
         builder.Services.AddSingleton<LoginPage>();
         builder.Services.AddSingleton<PartsPage>();
         builder.Services.AddSingleton<AddPartPage>();

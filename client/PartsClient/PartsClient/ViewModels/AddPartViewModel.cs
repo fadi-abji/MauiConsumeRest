@@ -2,11 +2,15 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using PartsClient.Data;
+using PartsClient.Service;
 
 namespace PartsClient.ViewModels;
 
 public partial class AddPartViewModel : ObservableObject
 {
+
+    private readonly IPartsService _partsService;
+
     [ObservableProperty]
     string _partID;
 
@@ -19,8 +23,9 @@ public partial class AddPartViewModel : ObservableObject
     [ObservableProperty]
     string _partType;
 
-    public AddPartViewModel()
+    public AddPartViewModel(IPartsService partsService)
     {
+        _partsService = partsService;
     }
 
     [RelayCommand]
@@ -32,17 +37,15 @@ public partial class AddPartViewModel : ObservableObject
             await UpdatePart();
     }
 
-
     [RelayCommand]
     async Task InsertPart()
     {
-        await PartsManager.Add(PartName, Suppliers, PartType);
+        await _partsService.Add(PartName, Suppliers, PartType);
 
         WeakReferenceMessenger.Default.Send(new RefreshMessage(true));
 
         await Shell.Current.GoToAsync("..");
     }
-
 
     [RelayCommand]
     async Task UpdatePart()
@@ -55,7 +58,7 @@ public partial class AddPartViewModel : ObservableObject
             Suppliers = Suppliers.Split(",").ToList()
         };
 
-        await PartsManager.Update(partToSave);
+        await _partsService.Update(partToSave);
 
         WeakReferenceMessenger.Default.Send(new RefreshMessage(true));
 
@@ -68,7 +71,7 @@ public partial class AddPartViewModel : ObservableObject
         if (string.IsNullOrWhiteSpace(PartID))
             return;
 
-        await PartsManager.Delete(PartID);
+        await _partsService.Delete(PartID);
 
         WeakReferenceMessenger.Default.Send(new RefreshMessage(true));
 
