@@ -1,0 +1,48 @@
+﻿@using System.ComponentModel.DataAnnotations
+
+<h3>Edit Part</h3>
+
+<EditForm Model="@part" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="partID" class="form-label">Part ID</label>
+        <InputText id="partID" @bind-Value="part.PartID" class="form-control" />
+        <ValidationMessage For="@(() => part.PartID)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="partName" class="form-label">Part Name</label>
+        <InputText id="partName" @bind-Value="part.PartName" class="form-control" />
+        <ValidationMessage For="@(() => part.PartName)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="theSuppliers" class="form-label">Suppliers (Comma Separated)</label>
+        <InputText id="theSuppliers" @bind-Value="part.TheSuppliers" class="form-control" />
+        <ValidationMessage For="@(() => part.TheSuppliers)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="partType" class="form-label">Part Type</label>
+        <InputText id="partType" @bind-Value="part.PartType" class="form-control" />
+        <ValidationMessage For="@(() => part.PartType)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="partAvailableDate" class="form-label">Part Available Date</label>
+        <InputDate id="partAvailableDate" @bind-Value="part.PartAvailableDate" class="form-control" />
+        <ValidationMessage For="@(() => part.PartAvailableDate)" />
+    </div>
+
+    <div class="mb-3">
+        <label for="suppliers" class="form-label">Suppliers</label>
+        <InputText id="suppliers" @bind-Value="suppliersInput" class="form-control" />
+        <small>Enter suppliers separated by commas.</small>
+        <ValidationMessage For="@(() => suppliersInput)" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+

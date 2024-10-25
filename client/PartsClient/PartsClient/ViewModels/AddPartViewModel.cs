@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using PartsClient.Dto.Data;
 using PartsClient.Data;
 using PartsClient.Service;
 
@@ -9,7 +10,7 @@ namespace PartsClient.ViewModels;
 public partial class AddPartViewModel : ObservableObject
 {
 
-    private readonly IPartsService _partsService;
+    private readonly PartsClientService _partsService;
 
     [ObservableProperty]
     string _partID;
@@ -23,7 +24,7 @@ public partial class AddPartViewModel : ObservableObject
     [ObservableProperty]
     string _partType;
 
-    public AddPartViewModel(IPartsService partsService)
+    public AddPartViewModel(PartsClientService partsService)
     {
         _partsService = partsService;
     }

@@ -1,6 +1,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using PartsClient.Dto.Data;
 using PartsClient.Data;
 using PartsClient.Service;
 using System.Collections.ObjectModel;
@@ -9,7 +10,7 @@ namespace PartsClient.ViewModels;
 
 public partial class PartsViewModel : ObservableObject
 {
-    private readonly IPartsService _partsService;
+    private readonly PartsClientService _partsService;
 
     [ObservableProperty]
     ObservableCollection<Part> _parts;
@@ -26,7 +27,7 @@ public partial class PartsViewModel : ObservableObject
     [ObservableProperty]
     Part _selectedPart;
 
-    public PartsViewModel(IPartsService partsService)
+    public PartsViewModel(PartsClientService partsService)
     {
 
         _partsService = partsService;

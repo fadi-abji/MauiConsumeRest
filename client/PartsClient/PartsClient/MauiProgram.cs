@@ -1,4 +1,5 @@
-﻿using PartsClient.Pages;
+﻿using Parts.Business.Services;
+using PartsClient.Pages;
 using PartsClient.Service;
 using PartsClient.ViewModels;
 
@@ -21,6 +22,7 @@ public static class MauiProgram
 
         builder.Services.AddScoped<IAuthService, AuthService>();
         builder.Services.AddScoped<IPartsService, PartsService>();
+        builder.Services.AddScoped<PartsClientService>();
         builder.Services.AddSingleton<LoginViewModel>();
         builder.Services.AddSingleton<LoginPage>();
         builder.Services.AddSingleton<PartsPage>();

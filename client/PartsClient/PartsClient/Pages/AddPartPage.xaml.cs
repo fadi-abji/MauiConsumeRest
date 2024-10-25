@@ -1,4 +1,4 @@
-using PartsClient.Data;
+using PartsClient.Dto.Data;
 using PartsClient.ViewModels;
 
 namespace PartsClient.Pages;

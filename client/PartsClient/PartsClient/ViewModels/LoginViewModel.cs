@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using PartsClient.Data;
-using PartsClient.Service;
+using Parts.Business.Services;
+using PartsClient.Dto.Data;
 
 
 namespace PartsClient.ViewModels

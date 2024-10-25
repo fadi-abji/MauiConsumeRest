@@ -1,0 +1,20 @@
+﻿@inherits ClientPartsComponentBase
+
+
+<h3>Parts List</h3>
+
+@if (parts == null)
+{
+    <p>Loading parts...</p>
+}
+else
+{
+    <QuickGrid Items="parts" Class="table table-striped" Pageable="true" PageSize="5">
+        <PropertyColumn Property="@(p => p.PartID)" Title="Part ID" />
+        <PropertyColumn Property="@(p => p.PartName)" Title="Part Name" />
+        <PropertyColumn Property="@(p => p.PartType)" Title="Part Type" />
+        <PropertyColumn Property="@(p => p.SupplierString)" Title="Suppliers" />
+        <PropertyColumn Property="@(p => p.PartAvailableDate)" Title="Available Date" FormatString="yyyy-MM-dd" />
+    </QuickGrid>
+}
+

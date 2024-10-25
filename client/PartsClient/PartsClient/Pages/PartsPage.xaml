@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PartsClient.Pages.PartsPage"
              xmlns:viewmodel="clr-namespace:PartsClient.ViewModels"
-             xmlns:data="clr-namespace:PartsClient.Data"
+             xmlns:data="clr-namespace:Parts.Dto.Data;assembly=Parts.Dto"
              x:DataType="viewmodel:PartsViewModel">
 
     <Grid RowDefinitions="Auto,*" ColumnDefinitions="*">
